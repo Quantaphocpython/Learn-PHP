@@ -45,9 +45,30 @@ $colors = [
 
 ## Operator
 
-- +; -; \*; /; %; !; .
-- a **??** b: a null thì trả về bx
-- Toán tử spread(**...**). Nhân bản chứ ko có chỉa vào cùng 1 vùng nhớ.
+## Operators
+
+- **Toán tử số học:**
+
+  - `+`: Cộng
+  - `-`: Trừ
+  - `*`: Nhân
+  - `/`: Chia
+  - `%`: Chia lấy dư
+
+- **Toán tử logic:**
+
+  - `!`: Phủ định (not)
+
+- **Toán tử kết hợp chuỗi:**
+
+  - `.`: Nối chuỗi
+
+- **Toán tử null coalescing:**
+
+  - `a ?? b`: Nếu `a` là `null`, trả về `b`.
+
+- **Toán tử spread:**
+  - `...`: Nhân bản một mảng (spread) mà không chia sẻ vùng nhớ.
 
 ## Iterations
 
@@ -57,26 +78,27 @@ $colors = [
 ## Functions
 
 - functions, arrow functions.
+- **isset(value)**: kiểm tra xem một biến hoặc nhiều biến có được khởi tạo và không có giá trị `null` hay không.
 
-### Arrays
+## Arrays
 
-- **count(arr)**: đếm số phần tử trong mảng.
-- **in_array(value, array)**: kiểm tra value có nằm trong array hay không.
-- **array_push(array, value)**: insert value vào cuối mảng.
-- **array_unshift(array, value)**: insert value vào đầu mảng.
-- **array_pop(array)**: delete phần tử cuối mảng.
-- **array_shift(array)**: delete phần tử đầu mảng.
-- **unset(array[index])**: xóa phần tử thứ index. (sau khi xóa sẽ mấy luôn key index)
-- **array_chunk(array, size)**: được sử dụng để chia một mảng lớn thành các mảng con có kích thước xác định trước.
-- **array_merged(arr1, arr2)**: merge arr với nhau, thằng sau nối đuôi thằng trước.
-- **array_combine(arr1, arr2)**: dùng để kết hợp hai mảng lại với nhau. Cụ thể, nó lấy các giá trị từ mảng thứ nhất ($arr1) làm key và các giá trị từ mảng thứ hai ($arr2) làm value để tạo ra một mảng kết hợp (associative array). arr1 có size bằng size của arr2.
-- **array_keys(arr)**: Trả về một mảng chứa các key của mảng `arr`.
-- **array_values(arr)**: Trả về một mảng chứa các giá trị của mảng `arr`.
+- **count(arr)**: Đếm số phần tử trong mảng.
+- **in_array(value, array)**: Kiểm tra `value` có nằm trong `array` hay không.
+- **array_push(array, value)**: Thêm `value` vào cuối mảng.
+- **array_unshift(array, value)**: Thêm `value` vào đầu mảng.
+- **array_pop(array)**: Xóa phần tử cuối mảng.
+- **array_shift(array)**: Xóa phần tử đầu mảng.
+- **unset(array[index])**: Xóa phần tử tại vị trí `index`. (**Lưu ý:** Sau khi xóa, key `index` sẽ bị mất.)
+- **array_chunk(array, size)**: Chia một mảng lớn thành các mảng con có kích thước xác định trước.
+- **array_merge(arr1, arr2)**: Gộp hai mảng lại với nhau, mảng sau sẽ nối đuôi mảng trước.
+- **array_combine(arr1, arr2)**: Kết hợp hai mảng lại với nhau, lấy các giá trị từ `$arr1` làm key và các giá trị từ `$arr2` làm value. (**Lưu ý:** `arr1` và `arr2` phải có kích thước bằng nhau.)
+- **array_keys(arr)**: Trả về một mảng chứa các `key` của mảng `arr`.
+- **array_values(arr)**: Trả về một mảng chứa các `giá trị` của mảng `arr`.
 - **range(start, end)**: Tạo ra một mảng chứa các số từ `start` đến `end`.
 - **array_map(callback, arr)**: Áp dụng hàm `callback` lên từng phần tử của mảng `arr` và trả về một mảng mới với các giá trị đã được xử lý.
 - **array_filter(arr, callback)**: Lọc các phần tử của mảng `arr` dựa trên hàm `callback`, trả về một mảng chứa các phần tử thoả mãn điều kiện của `callback`.
 
-### String functions
+## String functions
 
 - **strlen(string)**: Trả về độ dài của chuỗi `string`.
 - **strrev(string)**: Đảo ngược chuỗi `string`.
