@@ -43,8 +43,6 @@ $colors = [
 - Conditionals trong PHP khá giống C++.
 - Cấu trúc if và switch..case tương tự như JS, C++, Java.
 
-## Operator
-
 ## Operators
 
 - **Toán tử số học:**
@@ -121,3 +119,41 @@ $colors = [
 - **\$\_SERVER**: Mảng chứa thông tin về môi trường thực thi của script, bao gồm thông tin về máy chủ, đường dẫn và thông tin yêu cầu.
 - **\$\_GET**: Mảng chứa các giá trị được gửi đến script thông qua phương thức GET, thường được sử dụng để lấy dữ liệu từ URL.
 - **\$\_POST**: Mảng chứa các giá trị được gửi đến script thông qua phương thức POST, thường được sử dụng để gửi dữ liệu từ form.
+
+## Sử dụng `htmlspecialchars` trong PHP
+
+### 1. Lý do cần sử dụng `htmlspecialchars`
+
+Trong lập trình web, khi bạn nhận dữ liệu từ người dùng thông qua biểu mẫu (form), dữ liệu này thường được gửi qua phương thức `POST` hoặc `GET`. Việc xử lý trực tiếp dữ liệu nhập vào mà không kiểm tra hay xử lý có thể dẫn đến các lỗ hổng bảo mật, phổ biến nhất là **XSS (Cross-site scripting)**.
+
+XSS là một lỗ hổng bảo mật cho phép kẻ tấn công chèn các đoạn mã độc hại (thường là JavaScript) vào trang web. Để phòng tránh điều này, chúng ta cần mã hóa các ký tự đặc biệt mà người dùng có thể nhập vào (như `<`, `>`, `"`, `'`, `&`) trước khi hiển thị chúng trên trang HTML.
+
+Hàm `htmlspecialchars` sẽ thay thế các ký tự đặc biệt trong chuỗi thành các thực thể HTML an toàn, sau đó trả về dưới dạng string. Ví dụ:
+
+- Ký tự `<` sẽ được thay thế bằng `&lt;`
+- Ký tự `>` sẽ được thay thế bằng `&gt;`
+- Ký tự `"` sẽ được thay thế bằng `&quot;`
+
+### 2. Cú pháp của `htmlspecialchars`
+
+```php
+htmlspecialchars(string $string, int $flags = ENT_COMPAT | ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string
+```
+
+- Ngoài cách trên ta cũng có thể dùng **filter_var()** để lọc đi các kí tự đặc biệt.
+
+**filter_var()**: Hàm kiểm tra và lọc dữ liệu theo bộ lọc (vd: `FILTER_VALIDATE_EMAIL` để kiểm tra email, `FILTER_SANITIZE_STRING` để lọc chuỗi).
+
+## Cookies
+
+### 1. Định nghĩa
+
+**Cookies** là các tệp nhỏ được trình duyệt lưu trữ trên máy tính của người dùng. Chúng được sử dụng để lưu trữ thông tin tạm thời, như phiên đăng nhập, tùy chọn người dùng, hoặc thông tin theo dõi hoạt động của người dùng trên trang web. PHP có thể gửi và đọc cookies từ trình duyệt để lưu trữ dữ liệu liên tục trong một khoảng thời gian nhất định.
+
+**Cookies** hết hạn sẽ được tự động xóa khỏi trình duyệt.
+
+### 2. Cú pháp tạo cookie trong PHP
+
+```php
+setcookie(name, value, expire, path, domain, secure, httponly);
+```
