@@ -159,3 +159,5 @@ setcookie(name, value, expire, path, domain, secure, httponly);
 ```
 
 ## Session
+
+- Khi thao tác với session cần phải có **session_start()**.

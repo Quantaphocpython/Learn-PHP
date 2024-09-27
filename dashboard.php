@@ -5,7 +5,7 @@ if (isset($_SESSION['email'])) {
     echo "email: " . $_SESSION['email'];
 } else {
     echo "guest";
-    echo "<a href='/session.php'>Back to login</a>";
+    echo "<br/><a href='/logout.php'>Logout</a>";
 }
 ?>
 <!DOCTYPE html>
