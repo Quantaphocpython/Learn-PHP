@@ -157,3 +157,5 @@ htmlspecialchars(string $string, int $flags = ENT_COMPAT | ENT_HTML401, ?string 
 ```php
 setcookie(name, value, expire, path, domain, secure, httponly);
 ```
+
+## Session
